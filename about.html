@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    <link rel="stylesheet" href="style2.css">
+</head>
+<body>
+    
+    <header class="header">
+
+<!-- Branding section with logo and company name -->
+         <div class="brand">
+            <img src="images/brand_icon.png" alt="whale shark icon">
+            <span>The Gentle Giants Project</span>
+         </div>
+
+<!-- desktop/main navigation -->
+        <nav class="main_nav">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a class="active" href="about.html">About Us</a></li>
+                <li><a href="learn.html">Learn More</a></li>
+                <li><a href="help.html">How to Help</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+
+<!-- mobile toggle -->
+        <button class="mobile_toggle" id="mobileToggle" aria-label="Open navigation" aria-expanded="false">
+              <span aria-hidden="true"></span>
+        </button>
+
+<!-- mobile nav -->
+        <ul class="mobile_nav" id="mobileNav">
+                <li><a href="index.html">Home</a></li>
+                <li><a class="active" href="about.html">About Us</a></li>
+                <li><a href="learn.html">Learn More</a></li>
+                <li><a href="help.html">How to Help</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+
+    </header>
+
+    <main>
+<!-- Hero section -->
+        <section class="hero">
+            <div class="hero_img">
+                <img src="images/hero_img.jpg" alt="whale shark swimming with various fish">
+            </div>
+
+            <div class="hero_text">
+                <h1>About Us</h1>
+                <p class="quote">“Conservation is the preservation of life on earth, and that, above all else, is worth fighting for.”</p>
+                <p>-Rob Stewart</p>
+            </div>
+        </section>
+
+<!-- mission/history section -->
+        <section class="mission">
+            <h2>Our Mission</h2>
+            <p>The Gentle Giants Project was created out of a fascination with the oceans and the creatures that call it home. Over the years, our team has grown and our focus has become protecting one of the ocean's largest species, the whale shark. Through research, education, and help from supporters across the world, we hope to one day bring these gentle giants out of the threat of extinction.</p>
+        </section>
+
+<!-- impact statistics -->
+        <section class="impact">
+            <h2>Our Impact</h2>
+
+            <div class="impact_wrapper">
+                <div class="card">
+                    <img src="images/tag.png" alt="location pin symbol">
+                    <p>142 whale sharks tagged for tracking</p>
+                </div>
+
+                <div class="card">
+                    <img src="images/dive.png" alt="illustration of a diving mask">
+                    <p>73 dive surveys of habitats around the world</p>
+                </div>
+
+                <div class="card">
+                    <img src="images/education.png" alt="illustration of an open book">
+                    <p>352 educational events hosted</p>
+                </div>
+            </div>
+        </section>
+
+<!-- team section -->
+        <section class="team">
+            <h2>Our Team</h2>
+
+            <div class="team_wrapper">
+                <div class="card">
+                    <img src="images/team1.jpg" alt="Portrait of a woman outside">
+                    <h3 class="name">Alysa Grayson</h3>
+                    <h3>Director</h3>
+                    <p>While studying for a bachelor's degree in marine biology and conservation, Alysa Grayson fell in love with whale sharks and became determined to help the species. After graduating, she started The Gentle Giants Project, and her goal has always been to protect whale sharks while also sharing her love and knowledge of these animals with others. Today, she functions as the director for the organization's research and education efforts.</p>
+                </div>
+
+                <div class="card">
+                    <img src="images/team2.jpg" alt="portrait of a man">
+                    <h3 class="name">Michael Warren</h3>
+                    <h3>Lead Researcher</h3>
+                    <p>Warren began working at The Gentle Giants Project in its early days as a field researcher. His passion for ocean conservation led him to become the project's lead researcher, and today, he oversees the organization's various research efforts and data analysis.</p>
+                </div>
+
+                <div class="card">
+                    <img src="images/team3.jpg" alt="portrait of a young woman">
+                    <h3 class="name">Maria Douglas</h3>
+                    <h3>Field Researcher</h3>
+                    <p>The newest member of The Gentle Giants Project, Maria Douglas, began as a research assistant while studying marine biology. Since graduating, she has continued to work with the organization as a field researcher participating in dive surveys and tracking tagged whale sharks.</p>
+                </div>
+
+                <div class="card">
+                    <img src="images/team4.jpg" alt="portrait of a woman">
+                    <h3 class="name">Alice Scott</h3>
+                    <h3>Event Coordinator</h3>
+                    <p>Alice Scott combines her love of marine conservation with her passion for teaching by working as the organization's event coordinator. She works together with the research department and oversees the educational events hosted by The Gentle Giants Project across various regions.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+<!-- how to help section -->
+        <section class="part">
+            <div class="part_wrapper">
+                <div class="part_text">
+                    <h2>Your Part</h2>
+                    <p>You are an important part of our team at The Gentle Giants Project, and there are many ways you can help our efforts!</p>
+                    <a href="help.html">Learn More</a>
+                </div>
+
+                <img src="images/aquarium.jpg" alt="woman standing in front of an aquarium tank">
+            </div>
+        </section>
+
+    </main>
+
+<!-- footer -->
+   <footer>
+        &copy; 2026 Grace Lam - ITD210 Midterm
+    </footer>
+
+
+<!-- Javascript -->
+  <script>
+
+/* Mobile Navigation javascript */
+
+const toggle = document.getElementById("mobileToggle");
+
+const mobileNav = document.getElementById("mobileNav");
+
+toggle.addEventListener("click", () => {
+
+  const isOpen = mobileNav.classList.toggle("open");
+
+  toggle.setAttribute("aria-expanded", String(isOpen));
+});
+
+ </script>
+</body>
+</html>
