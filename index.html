@@ -139,6 +139,31 @@
 
     </main>
 
+<!-- Fetch Data Section -->
+    <div class="quotes">
+    <!-- Section for users to load data -->
+        <section id="quoteStart">
+            <h2>Quotes</h2>
+            <p>Click below for a random quote!</p>
+            <button id="loadBtn">Click Here</button>
+        </section>
+
+    <!-- Section for when data is loading and when there is an error -->
+        <section id="quoteLoading">
+            <h2>Loading</h2>
+            <p id="loadingMessage">Loading your quote...</p>
+            <p id="errorMessage"></p>
+        </section>
+
+    <!-- Section for the data after it's loaded -->
+        <section id="quoteResult">
+            <h2>Here's your quote!</h2>
+            <div id="dataContainer">
+                <!-- quote from fetch goes here -->
+            </div>
+        </section>
+    </div>    
+
 <!-- Footer -->
     <footer>
         &copy; 2026 Grace Lam - ITD210 Capstone Project
@@ -160,6 +185,58 @@ toggle.addEventListener("click", () => {
   toggle.setAttribute("aria-expanded", String(isOpen));
 });
 
+// fetch script for quote data
+    // verify fetch using console.log()
+        async function loadData () {
+            // grabs each section by ID
+            const loadingMessage = document.getElementById("quoteStart");
+            const errorMessage = document.getElementById("quoteLoading");
+            const dataContainer = document.getElementById("quoteResult");
+
+            // changes display so only loading section is shown when data is loading
+            quoteStart.style.display = "none";
+            quoteLoading.style.display = "block";
+            quoteResult.style.display = "none";
+            errorMessage.textContent = "";
+            dataContainer.innerHTML = "";
+
+            // request to get quote from the api
+            try {
+                const response = await fetch("https://dummyjson.com/quotes/random")
+
+            // displays error message if the request for data fails
+            if (!response.ok) {
+                throw new Error("Failed to load quote.");
+            }    
+
+            // turns the requested data into javascript
+            const data = await response.json();
+
+            console.log(data);
+
+            // displays the quote in the format set up
+            const item = document.createElement("div");
+            item.innerHTML = `
+                <p>${data.quote}</p>
+                <h3>${data.author}</h3>
+             `;
+            dataContainer.appendChild(item);
+
+            // changes display of sections so only the quote result is visible
+            quoteLoading.style.display = "none";
+            quoteResult.style.display = "block";
+
+            // error message that gets displayed if the fetch didn't work
+            } catch (error) {   
+                errorMessage.textContent = "Something went wrong. Please try again.";
+                console.log(error);
+            // stops displaying the loading message when data is displayed
+             } finally {
+                    loadingMessage.style.display = "none";
+                }
+            }
+        // button that users can click to load a quote
+        document.getElementById("loadBtn").addEventListener("click", loadData);  
  </script>
 </body>
 </html>
@@ -252,5 +329,13 @@ toggle.addEventListener("click", () => {
     o	What AI did: gave example code for how to use display to lay out text and images.
     o	What I did: Read the code explanations and implemented the flex-direction: column and flex: 1 elements to place the headings above the paragraph text while keeping the images to the side of the text.
     o	Prompt summary: “I want the h3 to sit above the p text while the image is beside both the h3 and the p”
+
+-   AI Assistance Citation:
+    o	Tool: ChatGPT
+    o	Date: 3/29/26
+    o	Where used: Home Quote Section 
+    o	What AI did: helped fix a few bugs in my Fetch code including all three sections displaying at the same time instead of one at a time as the data was following the request, load, and display process, the code returning the same quote every time instead of a random quote, and the name of the author showing up but not the quote itself. 
+    o	What I did: Read the code explanations and added the changes while customizing it to fit the needs og my webpage. 
+    o	Prompt summary: “Help me fix the bugs in this javascript fetch code”
 
 -->

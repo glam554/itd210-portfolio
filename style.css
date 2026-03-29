@@ -354,6 +354,85 @@ header{
     text-align: center;
 }
 
+/* Quote Data/Fetch styles */
+/* display styles to make only one section visible at a time */
+#quoteLoading,
+#quoteResult {
+    display: none;
+}
+
+.quotes {
+    text-align: center;
+}
+
+/* stage 1 styles */
+#quoteStart {
+    margin: 0px auto 30px auto;
+    background-color: var(--card);
+    border: var(--line);
+    border-radius: var(--radius);
+    width: 400px;
+    padding: 20px;
+}
+
+#quoteStart h2 {
+    font-size: 2rem;
+}
+
+#quoteStart p {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+}
+
+/* stage 2 - loading styles */
+
+#quoteLoading {
+    margin: 0px auto 30px auto;
+}
+
+/* interactive element (button) */
+
+button {
+    padding: 10px 24px;
+    border-radius: 12px;
+    font-size: 0.95rem;
+    font-weight: 700;
+    cursor: pointer;
+    background: #0A1128;
+    color: #fff;
+    border: none;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 10px rgba(0,0,0,0.3);
+}
+
+/* stage 3 - results styles */
+#quoteResult {
+    background-color: var(--card);
+    border: var(--line);
+    padding: 15px;
+    margin: 0px auto 30px auto;
+    max-width: 500px;
+    border-radius: var(--radius);
+}
+
+#quoteResult p {
+    font-size: 1.1rem;
+}
+
+#quoteResult h3 {
+    font-size: 1.3rem;
+}
+
+/* Error Styles */
+#errorMessage {
+    color: #1282A2;
+    font-size: 1.1rem;
+}
+
 /* Footer Style */
 footer {
     background-color: #1282A2;
