@@ -140,27 +140,28 @@
     </main>
 
 <!-- Fetch Data Section -->
-    <div class="quotes">
+    <div class="supporters">
     <!-- Section for users to load data -->
-        <section id="quoteStart">
-            <h2>Quotes</h2>
-            <p>Click below for a random quote!</p>
+        <section id="supportersStart">
+            <h2>Meet Our Supporters!</h2>
+            <p>Support from people like you allow our team to continue working towards our mission. Click below to meet some of our supporters! </p>
             <button id="loadBtn">Click Here</button>
         </section>
 
     <!-- Section for when data is loading and when there is an error -->
-        <section id="quoteLoading">
+        <section id="supportersLoading">
             <h2>Loading</h2>
-            <p id="loadingMessage">Loading your quote...</p>
+            <p id="loadingMessage">Loading supporters...</p>
             <p id="errorMessage"></p>
         </section>
 
     <!-- Section for the data after it's loaded -->
-        <section id="quoteResult">
-            <h2>Here's your quote!</h2>
+        <section id="supportersResult">
+            <h2>Here are some of our supporters!</h2>
             <div id="dataContainer">
-                <!-- quote from fetch goes here -->
+                <!-- supporters from fetch goes here -->
             </div>
+            <button id="backBtn">Back</button>
         </section>
     </div>    
 
@@ -185,28 +186,30 @@ toggle.addEventListener("click", () => {
   toggle.setAttribute("aria-expanded", String(isOpen));
 });
 
-// fetch script for quote data
+// fetch script for supporter data
     // verify fetch using console.log()
         async function loadData () {
             // grabs each section by ID
-            const loadingMessage = document.getElementById("quoteStart");
-            const errorMessage = document.getElementById("quoteLoading");
-            const dataContainer = document.getElementById("quoteResult");
+            const supportersStart = document.getElementById("supportersStart");
+            const supportersLoading = document.getElementById("supportersLoading");
+            const supportersResult = document.getElementById("supportersResult");
+            const errorMessage = document.getElementById("errorMessage");
+            const dataContainer = document.getElementById("dataContainer");
 
             // changes display so only loading section is shown when data is loading
-            quoteStart.style.display = "none";
-            quoteLoading.style.display = "block";
-            quoteResult.style.display = "none";
+            supportersStart.style.display = "none";
+            supportersLoading.style.display = "block";
+            supportersResult.style.display = "none";
             errorMessage.textContent = "";
             dataContainer.innerHTML = "";
 
             // request to get quote from the api
             try {
-                const response = await fetch("https://dummyjson.com/quotes/random")
+                const response = await fetch("https://jsonplaceholder.typicode.com/users")
 
             // displays error message if the request for data fails
             if (!response.ok) {
-                throw new Error("Failed to load quote.");
+                throw new Error("Failed to load data.");
             }    
 
             // turns the requested data into javascript
@@ -214,17 +217,24 @@ toggle.addEventListener("click", () => {
 
             console.log(data);
 
-            // displays the quote in the format set up
-            const item = document.createElement("div");
-            item.innerHTML = `
-                <p>${data.quote}</p>
-                <h3>${data.author}</h3>
-             `;
-            dataContainer.appendChild(item);
+            // makes the loading of supporters random and limits users loaded to 5
+            const selectedUsers = data 
+                .sort(() => 0.5 - Math.random())
+                .slice(0, 5);
+
+            // displays the supporters in the format set up
+            selectedUsers.forEach(user => {
+                const item = document.createElement("div");
+                item.innerHTML = `
+                    <h3>${user.name}</h3>
+                    <p>From ${user.address.city}</p>
+                 `;
+                dataContainer.appendChild(item);
+            });
 
             // changes display of sections so only the quote result is visible
-            quoteLoading.style.display = "none";
-            quoteResult.style.display = "block";
+            supportersLoading.style.display = "none";
+            supportersResult.style.display = "block";
 
             // error message that gets displayed if the fetch didn't work
             } catch (error) {   
@@ -235,8 +245,25 @@ toggle.addEventListener("click", () => {
                     loadingMessage.style.display = "none";
                 }
             }
-        // button that users can click to load a quote
+        // function for button to bring users back to the start section after loading supporters
+        function goBack() {
+            const supportersStart = document.getElementById("supportersStart");
+            const supportersLoading = document.getElementById("supportersLoading");
+            const supportersResult = document.getElementById("supportersResult");
+            const dataContainer = document.getElementById("dataContainer");
+
+            supportersStart.style.display = "block";
+            supportersLoading.style.display = "none";
+            supportersResult.style.display = "none";
+
+            dataContainer.innerHTML = "";
+        }
+
+        // button that users can click to load supporters
         document.getElementById("loadBtn").addEventListener("click", loadData);  
+
+        // button to bring users back to the start section 
+        document.getElementById("backBtn").addEventListener("click", goBack);
  </script>
 </body>
 </html>
@@ -335,7 +362,14 @@ toggle.addEventListener("click", () => {
     o	Date: 3/29/26
     o	Where used: Home Quote Section 
     o	What AI did: helped fix a few bugs in my Fetch code including all three sections displaying at the same time instead of one at a time as the data was following the request, load, and display process, the code returning the same quote every time instead of a random quote, and the name of the author showing up but not the quote itself. 
-    o	What I did: Read the code explanations and added the changes while customizing it to fit the needs og my webpage. 
+    o	What I did: Read the code explanations and added the changes while customizing it to fit the needs of my webpage. 
     o	Prompt summary: “Help me fix the bugs in this javascript fetch code”
 
+-   AI Assistance Citation:
+    o	Tool: ChatGPT
+    o	Date: 3/30/26
+    o	Where used: Home Quote Section 
+    o	What AI did: helped me set up some features of my fetch code including making the data loaded randomized and limited to 5 and setting up a button to return users back to the start section after loading data. Also helped fix some bugs like the back button not appearing and then not working when clicked.
+    o	What I did: Read the code explanations and added the changes. Asked clarifying questions when it suggested new JavaScript that I had never used or seen before.  
+    o	Prompt summary: “How can I make the data loaded in this fetch code randomized and limited to 5 users” and "How can I add a button to the results section to tak users back to the start section"
 -->
