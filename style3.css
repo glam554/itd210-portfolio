@@ -27,6 +27,10 @@ body {
     overflow-x: hidden;
 }
 
+main {
+    margin-top: 10px;
+}
+
 /* header styles */
 header {
     position: sticky; top:0;left:0;width:100%;
@@ -99,11 +103,15 @@ header {
 /* Mobile navigation */
 
 /* layout */
+
+.mobile_nav {
+    list-style-type: none;
+}
+
 .mobile_nav li {
     display:flex;
     align-items: center;
     gap:20px;
-    list-style-type: none;
 }
 
 /* link style */
@@ -211,7 +219,7 @@ header {
 
 .hero_text h1{
     color: #fff;
-    font-size: clamp(40px, 4.5vw, 60px);
+    font-size: clamp(48px, 4.7vw, 65px);
     font-weight: 700;
     max-width: 70ch;
     margin: 10px auto 0;
@@ -229,155 +237,180 @@ header {
     text-align: center;
 }
 
-/* our mission section styles */
-.mission {
-    width: 60vw;
-    margin-left: auto;
-    margin-right: auto;
+/* message section styles */
+.message {
     margin-bottom: var(--space);
 }
 
-.mission h2 {
+.message h2 {
     text-align: center;
-    font-size: clamp(40px, 4.5vw, 60px);
+    font-size: clamp(40px, 4.3vw, 55px);
 }
 
-/* impact section styles */
-.impact {
-    width: 60vw;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: var(--space);
-}
-
-.impact h2 {
-    text-align: center;
-    font-size: clamp(30px, 3.2vw, 40px);
-}
-
-/* wrapper for grid layout */
-.impact_wrapper {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 20px;
-}
-
-/* our team section styles */
-.team {
-    width: 60vw;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: var(--space);
-}
-
-.team h2 {
-    text-align: center;
-    font-size: clamp(30px, 3.2vw, 40px);
-}
-
-.name {
-    font-size: clamp(30px, 3.2vw, 40px);
-}
-
-/* wrapper for team grid layout */
-.team_wrapper {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 20px;
-}
-
-/* your part section styles */
-.part {
-    width: 60vw;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: var(--space);
-}
-
-/* wrapper for grid layout */
-.part_wrapper {
-    display: grid;
-    grid-template-columns: 1fr;
-    align-items: center;
-}
-
-.part h2 {
-    text-align: center;
-    font-size: clamp(30px, 3.2vw, 40px);
-}
-
-.part_text {
-    text-align: center;
-    padding: 20px;
-}
-.part_text p {
-    margin-bottom: 20px;
-}
-
-/* learn more button */
-.part_text a {
-    text-decoration:none;
-    color: #0A1128;
-    border: 2px solid #0A1128;
-    border-radius: var(--radius);
-    width: 130px;
-    padding: 4px 12px;
-    font-weight: 550;
-    font-size: clamp(12px, 1.2vw, 16px);
-    text-align: center;
-}
-
-.part_text a:hover {
-    color: #f0f0f0;
-    background: #1282A2;
-    border: 2px solid #1282A2;
-}
-
-.part img {
-    width: 100%;
-    height: auto;
-}
-
-/* card styles: our impact and our team */
-.card {
-    background: var(--card);
+.form_wrapper {
+    width: 400px;
+    margin: 0 auto;
+    background-color: var(--card);
+    padding: var(--space);
     border: 1px solid var(--line);
     border-radius: var(--radius);
-    padding: clamp(12px, 2vw, 18px);
-    box-shadow: var(--shadow);
+    margin-bottom: var(--space);
 }
 
-.card img {
+/* input styles */
+input, textarea {
     width: 100%;
-    height: auto;
-    display: block;
+    margin-top: 10px;
+    margin-bottom: 14px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: var(--radius);
+    box-sizing: border-box;
+    resize: vertical;
+    line-height: 1.6;
 }
 
-.card h3 {
+/* larger input for message */
+#comment {
+    min-height: 80px;
+}
+
+/* input focus */
+input:focus, textarea:focus {
+    border-color: #1282A2;
+    box-shadow: 0 0 5px rgba(18, 130, 162, 0.5);
+    outline: none;
+}
+
+/* form label styles */
+.message_form label {
+    font-size: clamp(16px, 1.5vw, 20px);
+    font-weight: 600;
+}
+
+/* submit button styles */
+.message_form button {
+    text-decoration: none;
+    color: #f0f0f0;
+    background: #0A1128;
+    font-size: clamp(12px, 3.5vh, 18px);
+    font-weight:450;
+    border: none;
+    border-radius: var(--radius);
+    padding: 10px;
+}
+
+.message_form button:hover {
+    background: #1282A2;
+}
+
+/* media queries for responsive form */
+@media (min-width:600px) {
+    .form_wrapper {
+        width: 500px;
+    }
+}
+
+@media (min-width:950px) {
+    .form_wrapper {
+        width: 600px;
+    }
+}
+
+/* social section styles */
+.social {
+    margin-bottom: var(--space);
+}
+
+.social_wrapper {
+    width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.social h2 {
     text-align: center;
+    font-size: clamp(40px, 4.3vw, 55px);
 }
 
-/* media queries for responsive layout on different screen sizes */
+.social img {
+    width: 80px;
+    height: auto;
+    padding: 16px;
+}
 
-/* changes layout for screens 600px and more */
-@media (min-width: 600px) {
-    .impact_wrapper{
-        grid-template-columns: repeat(2, 1fr);
+/* media queries for responsive form */
+@media (min-width:600px) {
+    .social img {
+    width: 90px;
+    height: auto;
+    padding: 16px;
     }
 }
 
-/* changes layout for screens 900px and more */
-@media (min-width: 900px) {
-    .impact_wrapper{
-        grid-template-columns: repeat(3, 1fr);
+@media (min-width:950px) {
+    .social img {
+        width: 100px;
+        height: auto;
+        padding: 16px;
     }
+}
 
-    .team_wrapper {
-        grid-template-columns: repeat(2, 1fr);
+/* FAQ section styles */
+.questions {
+    width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: var(--space);
+}
+
+.questions h2 {
+    text-align: center;
+    font-size: clamp(40px, 4.3vw, 55px);
+}
+
+/* question styles */
+.collapse {
+    background-color: var(--ink);
+    color: #f0f0f0;
+    font-weight: 600;
+    cursor: pointer;
+    padding: 16px;
+    width: 100%;
+    text-align: left;
+    outline: none;
+    border-bottom: 1px solid #f0f0f0;
+    font-size: 18px;
+}
+
+.active, .collapse:hover {
+    background-color: #1282A2;
+    border: 1px solid #1282A2;
+}
+
+/* content/answer styles */
+.content {
+    padding: 16px;
+    font-size: 18px;
+    display: none;
+    overflow: hidden;
+    background-color: var(--card);
+    border: 1px solid var(--line);
+}
+
+/* media queries for responsive layout */
+@media (min-width:600px) {
+    .questions {
+    width: 500px;
     }
+}
 
-    .part_wrapper {
-        grid-template-columns: repeat(2, 1fr);
+@media (min-width:950px) {
+    .questions {
+    width: 500px;
     }
 }
 

@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <link rel="stylesheet" href="style3.css">
+</head>
+<body>
+
+    <!-- Header with brand logo and the navigation section-->
+    <header class="header">
+
+<!-- Branding section with logo and company name -->
+         <div class="brand">
+            <img src="images/brand_icon.png" alt="whale shark icon">
+            <span>The Gentle Giants Project</span>
+         </div>
+
+<!-- desktop/main navigation -->
+        <nav class="main_nav">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="learn.html">Learn More</a></li>
+                <li><a href="help.html">How to Help</a></li>
+                <li><a class="active" href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+
+<!-- mobile toggle -->
+        <button class="mobile_toggle" id="mobileToggle" aria-label="Open navigation" aria-expanded="false">
+              <span aria-hidden="true"></span>
+        </button>
+
+<!-- mobile nav -->
+        <ul class="mobile_nav" id="mobileNav">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="learn.html">Learn More</a></li>
+                <li><a href="help.html">How to Help</a></li>
+                <li><a class="active" href="contact.html">Contact</a></li>
+            </ul>
+
+    </header>
+    
+    <!-- Hero section -->
+    <section class="hero">
+        <div class="hero_img">
+            <img src="images/contact_hero.jpg" alt="Whale shark and fish swimming">
+        </div>
+
+        <div class="hero_text">
+            <h1 class="hero_text">Contact Us</h1>
+            <p>Reach out to us with any questions you have about our mission, research program, or upcoming events, and make sure to follow us on social media for regular conservation updates!</p>
+        </div>
+
+    </section>
+
+    <!-- Message form section -->
+    <section class="message">
+        <h2>Send Us a Message</h2>
+        <div class="message_wrapper">
+            <div class="form_wrapper">
+                <form class="message_form" action="#">
+                    <!-- first name -->
+                    <label for="fName">First Name:</label>
+                    <input type="text" id="fName" name="firstName"> 
+
+                    <!-- last name -->
+                    <label for="lName">Last Name:</label>
+                    <input type="text" id="lName" name="lastName"> 
+
+                    <!-- email address -->
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email">
+
+                    <!-- message/comment -->
+                    <label for="comment">Your Message:</label>
+                    <textarea name="comment" id="comment"></textarea>
+
+                    <!-- submit button -->
+                    <button>Submit</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- social media links -->
+    <section class="social">
+        <h2>Follow Us on Social Media</h2>
+        <div class="social_wrapper">
+            <a href="#">
+                <img src="images/instagram.png" alt="instagram logo icon">
+            </a>
+
+            <a href="#">
+                <img src="images/facebook.png" alt="facebook logo icon">
+            </a>
+
+            <a href="#">
+                <img src="images/youtube.png" alt="youtube logo icon">
+            </a>
+        </div>
+    </section>
+
+    <!-- FAQ section -->
+     <section class="questions">
+        <h2>FAQs</h2>
+
+        <button class="collapse">How do you use donation funds?</button>
+            <div class="content">
+                <p>The funds we receive from our supporters go towards our research program, habitat conservation efforts, and funding future educational events. </p>
+            </div>
+        
+        <button class="collapse">Do you help to conserve any other marine species?</button>
+            <div class="content">
+                <p>The Gentle Giants Project focuses all of its time and resources on protecting whale sharks. However, our research and habitat work has positive effects for other species that share the ocean with whale sharks. We also partner with other marine conservation organizations that help other animals frequently.</p>
+            </div>
+
+        <button class="collapse">How can I receive updates on your conservation efforts?</button>
+            <div class="content">
+                <p>The best way to keep up to date with The Gentle Giants Project is to follow us on social media where we regularly post about our research, the whales we are tracking, and our upcoming events. We also keep our website up-to-date with our progress and events.</p>
+            </div>
+
+    <!-- how to create: https://www.w3schools.com/howto/howto_js_collapsible.asp  -->
+
+     </section>
+
+    <!-- footer -->
+   <footer>
+        &copy; 2026 Grace Lam - ITD210 Midterm
+    </footer>
+
+    <!-- Javascript -->
+  <script>
+
+    /* Mobile Navigation javascript */
+
+    const toggle = document.getElementById("mobileToggle");
+
+    const mobileNav = document.getElementById("mobileNav");
+
+    toggle.addEventListener("click", () => {
+
+    const isOpen = mobileNav.classList.toggle("open");
+
+    toggle.setAttribute("aria-expanded", String(isOpen));
+    });
+
+    // collapsible faq javascript
+    var coll = document.getElementsByClassName("collapse");
+    var i;
+
+    for (i = 0; i < coll.length; i++) {
+        coll[i].addEventListener("click", function() {
+            this.classList.toggle("active");
+            var content = this.nextElementSibling; 
+            if (content.style.display === "block") {
+                content.style.display = "none";
+            } else {
+                content.style.display = "block";
+            }
+        });
+    }   
+
+ </script>
+</body>
+</html>
+
+<!-- Citations -->
+<!-- -	Image Credit (web source)
+    o	File/Page: contact.html (Hero section)
+    o	Image File: contact_hero.jpg
+    o	Original creator: Jimmy Dominico
+    o	Description: “whale shark and fish swimming”
+    o	Source page: www.pixabay.com  
+    o	License: free to use
+    o	Accessed: 2026-4-20 -->
+
+<!-- -	Image Credit (web source)
+    o	File/Page: contact.html (social media section)
+    o	Image File: instagram.png
+    o	Original creator: Chehuna
+    o	Description: "Instagram logo icon”
+    o	Source page: www.thenounproject.com  
+    o	License: royalty free license
+    o	Accessed: 2026-4-20 -->
+
+<!-- -	Image Credit (web source)
+    o	File/Page: contact.html (social media section)
+    o	Image File: facebook.png
+    o	Original creator: Mert Guler
+    o	Description: "Facebook logo icon”
+    o	Source page: www.thenounproject.com  
+    o	License: royalty free license
+    o	Accessed: 2026-4-20 -->
+
+<!-- -	Image Credit (web source)
+    o	File/Page: contact.html (social media section)
+    o	Image File: youtube.png
+    o	Original creator: Dave Robson
+    o	Description: "Youtube logo icon”
+    o	Source page: www.thenounproject.com  
+    o	License: royalty free license
+    o	Accessed: 2026-4-20 -->
+
+<!-- Source for Collapsible FAQ code help -->
+ <!-- https://www.w3schools.com/howto/howto_js_collapsible.asp -->

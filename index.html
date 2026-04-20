@@ -9,41 +9,40 @@
 <body>
     
 <!-- Header with brand logo and the navigation section-->
-    <header>
-<!-- Branding -->
-        <div class="branding">
-            <img src="images/brand_icon.png" alt="white whale shark icon">
+    <header class="header">
+
+<!-- Branding section with logo and company name -->
+         <div class="brand">
+            <img src="images/brand_icon.png" alt="whale shark icon">
             <span>The Gentle Giants Project</span>
-        </div>
+         </div>
 
-<!--Desktop Nav-->
-            <nav class="desktop_nav" aria-label="Main Navigation">
-                <a href="index.html" class="active" aria-current="page">Home</a>
-                <a href="about.html">About Us</a>
-                <a href="learn.html">Learn More</a>
-                <a href="help.html">How to Help</a>
-                <a href="contact.html">Contact</a>
-            </nav>
+<!-- desktop/main navigation -->
+        <nav class="main_nav">
+            <ul>
+                <li><a class="active" href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="learn.html">Learn More</a></li>
+                <li><a href="help.html">How to Help</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
 
-<!-- Mobile Nav toggle button -->
+<!-- mobile toggle -->
         <button class="mobile_toggle" id="mobileToggle" aria-label="Open navigation" aria-expanded="false">
               <span aria-hidden="true"></span>
         </button>
 
+<!-- mobile nav -->
+        <ul class="mobile_nav" id="mobileNav">
+                <li><a class="active" href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="learn.html">Learn More</a></li>
+                <li><a href="help.html">How to Help</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+
     </header>
-
-    <!-- Mobile Nav -->
-        <nav class="mobile_nav" id="mobileNav" aria-label="Mobile navigation">
-            <!-- Example usage -->
-            <a href="index.html" class="active" aria-current="page">Home</a>
-            <a href="about.html">About Us</a>
-            <a href="learn.html">Learn More</a>
-            <a href="help.html">How to Help</a>
-            <a href="contact.html">Contact</a>
-            </nav>
-
-<!--Main section-->
-    <main>
 
 <!--Hero section-->
         <section class="hero" aria-label="Hero Section">
@@ -144,8 +143,8 @@
         &copy; 2026 Grace Lam - ITD210 Capstone Project
     </footer>
 
-<!-- JavaScript -->
- <script>
+<!-- Javascript -->
+  <script>
 
 /* Mobile Navigation javascript */
 
